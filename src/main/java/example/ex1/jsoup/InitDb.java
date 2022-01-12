@@ -27,7 +27,6 @@ public class InitDb {
     @RequiredArgsConstructor
     static class InitService {
 
-        private final EntityManager em;
         private final ItemRepository itemRepository;
 
         public void dbInit() throws IOException {
