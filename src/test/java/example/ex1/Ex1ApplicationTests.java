@@ -1,14 +1,13 @@
 package example.ex1;
 
-import example.ex1.jsoup.Item;
-import example.ex1.jsoup.ItemRepository;
+import example.ex1.exItem.Item;
+import example.ex1.exItem.ItemRepository;
 import org.assertj.core.api.Assertions;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.core.AutoConfigureCache;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,13 +16,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@SpringBootTest
 class Ex1ApplicationTests {
 
 	@Autowired
 	ItemRepository itemRepository;
 
-	@Test
+
 	@Transactional
 	@Rollback(false)
 	public void testItem(){
@@ -36,7 +34,6 @@ class Ex1ApplicationTests {
 		Assertions.assertThat(findItem).isEqualTo(item);
 	}
 
-	@Test
 	@Transactional
 	@Rollback(false)
 	public void 이니스프리크롤링() throws IOException {
@@ -62,7 +59,6 @@ class Ex1ApplicationTests {
 		Assertions.assertThat(findItems).isEqualTo(items);
 	}
 
-	@Test
 	@Transactional
 	@Rollback(false)
 	public void 시드물크롤링() throws IOException {

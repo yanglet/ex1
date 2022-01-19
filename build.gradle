@@ -28,6 +28,7 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.jsoup:jsoup:1.14.3'
+	implementation group: 'org.python', name: 'jython-standalone', version: '2.7.2'
 }
 
 test {

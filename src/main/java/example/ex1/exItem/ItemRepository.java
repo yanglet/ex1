@@ -1,4 +1,4 @@
-package example.ex1.jsoup;
+package example.ex1.exItem;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -24,7 +24,7 @@ public class ItemRepository {
 
     public void update(Long id, String name){
         Item item = em.find(Item.class, id);
-        item.setItemName(name);
+        item.setName(name);
     }
 
     public Item find(Long id){
