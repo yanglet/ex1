@@ -16,17 +16,14 @@ public class Item {
     @Id @GeneratedValue
     private Long id;
 
-    private String name; //
-    private String price; //
+    private String name;
+    private String price;
     private String priceSign;
-//    private String currency;
-//    private String tagList;
     private String brand;
-    private String imageLink; //
-    private String productLink; //
+    private String imageLink;
+    private String productLink;
     private String website_Link;
-//    private String description;
-    private String itemFeature;  //일단은 List로 안했음
+    private String itemFeature;  
     private String skinType;
 
 
