@@ -15,17 +15,9 @@ import java.util.stream.Collectors;
 public class ItemController {
     private final ItemRepository itemRepository;
 
-    @Autowired //생략가능
     public ItemController(ItemRepository itemRepository) {
         this.itemRepository = itemRepository;
     }
-
-    /**
-    @GetMapping("/")
-    public String Form(){
-        return "basic/form";
-    }
-    */
 
     @GetMapping("/url") //조회 api
     public Result readNameList(){
@@ -55,7 +47,7 @@ public class ItemController {
 
     @PutMapping("/url/{id}") //수정 api
     public UpdateItemResponse update(@PathVariable Long id,
-                       @RequestBody @Valid UpdateItemRequest request){
+                       @RequestBody UpdateItemRequest request){
         itemRepository.update(id, request.getName());
         Item findItem = itemRepository.find(id);
 
@@ -76,13 +68,10 @@ public class ItemController {
         private String name;
         private String price;
         private String priceSign;
-//        private String currency;
-//        private String tagList;
         private String brand;
         private String imageLink;
         private String productLink;
         private String website_Link;
-//        private String description;
         private String itemFeature;
         private String skinType;
     }
@@ -94,9 +83,10 @@ public class ItemController {
 
     @Data
     @AllArgsConstructor
-    static class Result<T> {
+    static class Result<T> { //api에 있어서 확장성을 위해 한번 감싸서 넘기기 위한 
         private T data;
     }
+    
     @Data
     @AllArgsConstructor
     static class ItemDto{ //엔티티 대신 데이터만 담아서 주고 받을 dto클래스
@@ -104,36 +94,27 @@ public class ItemController {
         private String name;
         private String price;
         private String priceSign;
-//        private String currency;
-//        private String tagList;
         private String brand;
         private String imageLink;
         private String productLink;
         private String website_Link;
-//        private String description;
         private String itemFeature;
         private String skinType;
-
-
     }
 
     @Data
     @AllArgsConstructor
-    static class UpdateItemRequest { //
+    static class UpdateItemRequest {
         private Long id;
         private String name;
         private String price;
         private String priceSign;
-//        private String currency;
-//        private String tagList;
         private String brand;
         private String imageLink;
         private String productLink;
         private String website_Link;
-//        private String description;
         private String itemFeature;
         private String skinType;
-
     }
 
     @Data
@@ -143,13 +124,10 @@ public class ItemController {
         private String name;
         private String price;
         private String priceSign;
-//        private String currency;
-//        private String tagList;
         private String brand;
         private String imageLink;
         private String productLink;
         private String website_Link;
-//        private String description;
         private String itemFeature;
         private String skinType;
     }
