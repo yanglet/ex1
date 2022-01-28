@@ -34,12 +34,10 @@ public class InitDb {
             String in_url = "https://www.innisfree.com/kr/ko/ProductList/skincare/Product.do?catCd01=UA";
             String si_url = "https://www.sidmool.com/shop/shopbrand.html?xcode=019&mcode=011&type=Y";
             String be_url = "https://www.beplain.co.kr/goods/goods_list.php?cateCd=017004";
-//            String dr_url = "https://www.drjart.co.kr/ko/prd/all";
 
             Document in_doc = Jsoup.connect(in_url).get();
             Document si_doc = Jsoup.connect(si_url).get();
             Document be_doc = Jsoup.connect(be_url).get();
-//            Document dr_doc = Jsoup.connect(dr_url).get();
 
             Elements in_nameList = in_doc.getElementsByAttributeValue("class", "name");
             Elements in_priceList = in_doc.getElementsByAttributeValue("class","price");
@@ -51,10 +49,6 @@ public class InitDb {
             Elements be_nameList = be_doc.getElementsByAttributeValue("class", "item_name");
             Elements be_priceList = be_doc.getElementsByAttributeValue("class","item_price");
             Elements be_imgsrc = be_doc.getElementsByAttributeValue("class", "middle");
-
-//            Elements dr_nameList = dr_doc.getElementsByAttributeValue("class", "pdtInfo");
-//            Elements dr_priceList = dr_doc.getElementsByAttributeValue("class", "cost type2");
-//            Elements dr_imgsrc = dr_doc.getElementsByAttributeValue("class", "pdtThumb");
 
 
             for(int j = 0; j < 20; j++) {
@@ -95,23 +89,6 @@ public class InitDb {
                         "skinType");
                 itemRepository.save(item);
             }
-            /**
-            for(int j = 0; j < 20; j++) {
-                Item item = new Item(dr_nameList.get(j).text(),
-                        dr_priceList.get(j).text(),
-                        "priceSign",
-                        "currency",
-                        "tagList",
-                        "brand",
-                        dr_imgsrc.get(j).toString(),
-                        "productLink",
-                        "websiteLink",
-                        "description",
-                        "itemFeature",
-                        "skinType");
-                itemRepository.save(item);
-            }
-            */
         }
     }
 }
