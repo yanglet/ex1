@@ -12,7 +12,7 @@ public class ItemRepository {
 
     private final EntityManager em;
 
-    @Autowired //생략가능
+    @Autowired //생략가능 jpa에서 지원x Spring data jpa 에서는 EntityManager도 @Autowired로 가능
     public ItemRepository(EntityManager em) throws IOException {
         this.em = em;
     }
